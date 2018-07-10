@@ -9,13 +9,17 @@ h1 {
 }
 h1 {
   margin: 10px 0;
-  color: navy;
+  color: red;
 }
 body {
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: start;
+      justify-content: flex-start;
+  -ms-flex-align: center;
+      align-items: center;
 }
 body dl {
   border: double;
@@ -36,7 +40,7 @@ body dl:empty + p {
 body dl dt {
   font-family: fantasy, sans-serif;
   font-size: 1.5em;
-  color: darkslateblue;
+  color: red;
 }
 body dl dt:hover {
   color: red;
@@ -48,12 +52,14 @@ body dl dd {
   font-size: 1em;
 }
 body form {
-  background-color: darkslateblue;
+  background-color: red;
   color: white;
   padding: 1em;
   width: 80%;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-around;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 body form input,
 body form button {
@@ -61,13 +67,16 @@ body form button {
   padding: 0.5em;
 }
 body form input:first-of-type {
-  flex-grow: 1;
+  -ms-flex-positive: 1;
+      flex-grow: 1;
 }
 body form input:last-of-type {
-  flex-grow: 4;
+  -ms-flex-positive: 4;
+      flex-grow: 4;
 }
 body form button {
-  flex-grow: 1;
+  -ms-flex-positive: 1;
+      flex-grow: 1;
   background-color: transparent;
   outline: none;
   border: solid 1px;
