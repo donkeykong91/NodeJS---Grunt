@@ -44,6 +44,38 @@ module.exports = function (grunt) {
 
       }
 
+    },
+
+    browserify: {
+
+      client: {
+
+        src: ["app-client.js"],
+
+        dest: "public/js/bundle.js"
+
+      }
+
+    },
+
+    watch: {
+
+      css: {
+
+        files: ["less/*.less"],
+
+        tasks: ["css"]
+
+      },
+
+      scripts: {
+
+        files: ["app-client.js", "lib/*.js"],
+
+        tasks: ["jshint", "browserify"]
+
+      }
+
     }
 
   });
@@ -54,8 +86,14 @@ module.exports = function (grunt) {
 
   grunt.loadNpmTasks("grunt-autoprefixer");
 
+  grunt.loadNpmTasks("grunt-browserify");
+
+  grunt.loadNpmTasks("grunt-contrib-watch");
+
 
   grunt.registerTask("css", ["less", "autoprefixer"]);
+
+  grunt.registerTask("js", ["browserify"]);
 
   grunt.registerTask("default", ["jshint", "css"]);
 
